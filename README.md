@@ -51,5 +51,11 @@ To add the switches to the ESP, click on Edit.
 
 In the editor, you can add the function like I did [here](/ESP8266/esphome-web-e01766.yaml)
 
-er that, download the file manually and upload it to the ESP using the ESPHome web installer.
+
+## Add device to Home Assistant
+To add the device to Home Assistant, go to Settings > Integrations and add the ESPHome integration to your configured home.
+After that, you can add it to your dashboard and use it however you like.
+
+![homeassistant dashboard](/assets/images/homeassistant_dashboard.png)
+
 
