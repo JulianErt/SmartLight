@@ -36,13 +36,41 @@ output:
     id: led_interior
 
 # Expose them as switches
-switch:
-  - platform: output
-    name: "Front LED"
+light:
+  - platform: binary
+    name: "Front"
+    id: front_led_light
     output: led_front
-  - platform: output
-    name: "Back LED"
+
+  - platform: binary
+    name: "Back"
+    id: back_led_light
     output: led_back
-  - platform: output
-    name: "Interior LED"
+
+  - platform: binary
+    name: "Interior"
+    id: interior_led_light
     output: led_interior
+
+# all lights toggle
+switch:
+  - platform: template
+    name: "All Lights"
+    id: all_leds_light
+    lambda: |-
+      if (id(front_led_light).current_values.is_on() ||
+          id(back_led_light).current_values.is_on() ||
+          id(interior_led_light).current_values.is_on()) {
+        return true;  // Show ON if any light is on
+      } else {
+        return false; // Show OFF only if all are off
+      }
+    turn_on_action:
+      - light.turn_on: front_led_light
+      - light.turn_on: back_led_light
+      - light.turn_on: interior_led_light
+    turn_off_action:
+      - light.turn_off: front_led_light
+      - light.turn_off: back_led_light
+      - light.turn_off: interior_led_light
+
