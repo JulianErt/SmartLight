@@ -48,6 +48,7 @@ In Home Assistant, you can either adopt the device or click on 'Take Control' to
 To add the switches to the ESP, click on Edit.
 
 ![esphome edit](/assets/images/esphome_edit.png)
+
 In the editor, you can add the function like I did [here](/ESP8266/esphome-web-e01766.yaml)
 
 er that, download the file manually and upload it to the ESP using the ESPHome web installer.
